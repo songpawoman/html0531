@@ -68,7 +68,7 @@
                 this.div.style.left=this.x+"px";
                 this.div.style.top=this.y+"px";
 
-                this.div.style.border="2px solid red";
+                this.div.style.border="2px solid yellow";
                 this.div.style.boxSizing="border-box";
                 this.container.appendChild(this.div);      
             }          
@@ -118,7 +118,7 @@
                     //json 표기를 JSON 내장객체로 변환해준다..
                     //alert(JSON.stringify(obj.json));
 
-                    obj.showInfo();
+                    showInfo();
 
                     //현재 영화의 x,y  좌표 출력 
                     console.log("x는 ", obj.x , "y는", obj.y);
@@ -131,7 +131,6 @@
 
                 });
             }//constructor() 닫는괄호 
-
             showInfo(){
                 //영화제목출력하기
                 header.innerText=this.json.title;
@@ -190,15 +189,15 @@
         }
         
         function randomLoop(){
-            //랜덤하게 영화 1개 끄집어내기
-            let movie=movieArray[getRandom(movieArray.length)][getRandom(5)];
+            let xIndex=getRandom(5);
+            let yIndex=getRandom(4);
 
+            let movie=movieArray[yIndex][xIndex];
             targetX=movie.x;
             targetY=movie.y;
 
             movie.showInfo();
-
-            movie.img.style.opacity=0.1; //투명으로 놓기
+            movie.img.style.opacity=0;
         }
 
         addEventListener("load", function(){
@@ -206,8 +205,6 @@
             createThumb();
             createRect();// 사각형 생성
             setInterval("loop()",10);
-
-            //2초 간격으로 targetX, targetY 를 랜덤한 값으로 대입!!
             setInterval("randomLoop()", 2000);
         });
     </script>
