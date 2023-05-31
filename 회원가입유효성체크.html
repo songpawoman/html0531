@@ -1,12 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        input[type=text], 
+        input[type=password], 
+        select{
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+        }
+
+        input[type=button] {
+            background-color: #04AA6D;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=button]:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+    </style>
 </head>
+
 <body>
-    
+
+    <h3>Contact Form</h3>
+
+    <div class="container">
+        <form action="/action_page.php">
+            <div>
+                <input type="text" id="id" name="id" placeholder="ID를 입력하세요">
+            </div>
+            <div>
+                <input type="password" id="pass" name="pass" placeholder="비밀번호를 입력하세요">
+            </div>
+            <div>
+                <input type="password" id="pass2" placeholder="비밀번호 확인">
+            </div>
+            <div>
+                <input type="text" id="jumin1" name="jumin1" placeholder="주민번호 앞 6자리 입력">
+                <input type="text" id="jumin2" name="jumin2" placeholder="주민번호 뒤 7자리 입력">
+            </div>
+            
+            <div>
+                남<input type="radio" name="gender">
+                여<input type="radio" name="gender">
+            </div>
+
+            <div>
+                개발<input type="checkbox">
+                등산<input type="checkbox">
+                독서<input type="checkbox">
+                운동<input type="checkbox">
+            </div>
+            <div>
+                <input type="text" style="width:45%">
+                @
+                <select  style="width:45%">
+                    <option value="">이메일 선택</option>
+                    <option value="">네이버</option>
+                    <option value="">다음</option>
+                    <option value="">구글</option>
+                    <option value="">직접입력</option>
+                </select>                    
+            </div>
+            <input type="button" value="Submit">
+
+        </form>
+    </div>
+
 </body>
+
 </html>

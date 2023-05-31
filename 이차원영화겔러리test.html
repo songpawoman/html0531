@@ -50,7 +50,9 @@
         let targetX=0; //사각형 포인터의 목표 x 좌표
         let targetY=0; //사각형 포인터의 목표 y 좌표
         let r;
-
+        let xIndex=0;
+        let yIndex=0;
+        
         //포인터 역할을 수행할 사각형 만들기  너비,높이50, 두께2
         class Rect{
             constructor(container, x, y){
@@ -189,8 +191,15 @@
         }
         
         function randomLoop(){
-            let xIndex=getRandom(5);
-            let yIndex=getRandom(4);
+            let movie=movieArray[getRandom(4)][getRandom(5)];
+            targetX=movie.x;
+            targetY=movie.y;
+
+            movie.showInfo();
+            movie.img.style.opacity=0;
+        }
+
+        function keyMove(e){
 
             let movie=movieArray[yIndex][xIndex];
             targetX=movie.x;
@@ -205,8 +214,14 @@
             createThumb();
             createRect();// 사각형 생성
             setInterval("loop()",10);
-            setInterval("randomLoop()", 2000);
+            //setInterval("randomLoop()", 2000);
+
+            document.body.addEventListener("keyup", function(){
+                keyMove(event);
+            });
+
         });
+
     </script>
 </head>
 <body>
